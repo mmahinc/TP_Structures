@@ -35,20 +35,26 @@ int main(void) {
     }
 
     // TODO: Saisie des equipements
-    // saisir_parc(...);
+    saisir_parc(mon_parc, n);
 
     // TODO: Affichage du parc
-    // afficher_parc(...);
+    afficher_parc(mon_parc, n);
 
     // TODO: Changement d'etat du premier equipement
     // printf("\nChangement d'etat du premier equipement...\n");
     // changer_etat(...);
+    if (n > 0) {
+        printf("\nChangement d'etat du premier equipement...\n");
+        changer_etat(&mon_parc[0]);
+        printf("L'equipement %d est maintenant %s.\n", mon_parc[0].id, mon_parc[0].est_actif ? "ACTIF" : "INACTIF");
+    }
 
     // TODO: Re-affichage pour verification
-    // afficher_parc(...);
+    afficher_parc(mon_parc, n);
 
     // TODO: Liberation de la mémoire
-    // free(...);
+    free(mon_parc);
+    mon_parc = NULL;
 
     printf("\nMemoire liberee avec succes.\n");
     return 0;
