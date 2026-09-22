@@ -96,8 +96,19 @@ void saisir_parc(Equipement *parc, int nb_equipements) {
 
 void afficher_parc(const Equipement *parc, int nb_equipements) {
     // TODO: Parcourir le tableau et afficher les informations
+    printf("\n--- LISTE DES EQUIPEMENTS ---\n");
+    for (int i = 0; i < nb_equipements; i++) {
+        printf("ID: %-3d | Nom: %-13s | IP: %-13s | Etat: %s\n",
+               parc[i].id,
+               parc[i].nom,
+               parc[i].ip,
+               parc[i].est_actif ? "ACTIF" : "INACTIF");
+    }
 }
 
 void changer_etat(Equipement *eq) {
     // TODO: Modifier la valeur de est_actif en passant par le pointeur
+    if (eq != NULL) {
+        eq->est_actif = eq->est_actif ? 0 : 1;
+    }
 }
