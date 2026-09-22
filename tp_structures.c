@@ -66,11 +66,32 @@ int main(void) {
 
 Equipement* allouer_parc(int nb_equipements) {
     // TODO: Utiliser malloc et vérifier si l'allocation a réussi
-    return NULL;
+    if (nb_equipements <= 0) return NULL;
+
+    Equipement *parc = (Equipement *)malloc((size_t)nb_equipements * sizeof(Equipement));
+    if (parc == NULL) {
+        fprintf(stderr, "Erreur d'allocation memoire.\n");
+    }
+    return parc;
 }
 
 void saisir_parc(Equipement *parc, int nb_equipements) {
     // TODO: Remplir les champs de chaque équipement avec une boucle
+    for (int i = 0; i < nb_equipements; i++) {
+        printf("\n--- Saisie de l'equipement %d ---\n", i + 1);
+        
+        printf("ID : ");
+        scanf("%d", &parc[i].id);
+
+        printf("Nom : ");
+        scanf("%29s", parc[i].nom);
+
+        printf("Adresse IP : ");
+        scanf("%15s", parc[i].ip);
+
+        printf("Actif (1: Oui, 0: Non) : ");
+        scanf("%d", &parc[i].est_actif);
+    }
 }
 
 void afficher_parc(const Equipement *parc, int nb_equipements) {
