@@ -26,9 +26,13 @@ int main(void) {
     scanf("%d", &n);
 
     // TODO: Allocation dynamique du parc
-    // mon_parc = allouer_parc(...);
+    mon_parc = allouer_parc(n);
 
     // TODO: Verification du pointeur (NULL ?)
+    if (mon_parc == NULL) {
+        printf("Impossible d'allouer la memoire pour le parc.\n");
+        return 1;
+    }
 
     // TODO: Saisie des equipements
     // saisir_parc(...);
